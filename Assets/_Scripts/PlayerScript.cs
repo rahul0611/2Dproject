@@ -73,7 +73,7 @@ public class PlayerScript : MonoBehaviour {
 		if(coll.gameObject.tag.Equals("Asteroid"))
 		{
 
-			Debug.Log("Player #######");
+			//Debug.Log("Player #######");
 			//fuelCount += 10;
 			Destroy(coll.gameObject);
 			//Debug.Log(fuelCount);

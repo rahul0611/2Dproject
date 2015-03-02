@@ -32,7 +32,7 @@ public class EnemyBulletScript : MonoBehaviour {
 			Destroy(this.gameObject);
 		}
 
-		if (coll.gameObject.tag.Equals ("Asteroid")) 
+		if (coll.gameObject.tag.Equals ("Asteroid") || coll.gameObject.tag.Equals("Asteroid1")) 
 		{
 			Destroy(gameObject);
 		}
