@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour {
 	public float max = 8.0f;
 	public GameObject bullet;
 	bool shot = true;
-
+	public 	int lifeCount = 2;
 	public Text fuelScore;
 	
 

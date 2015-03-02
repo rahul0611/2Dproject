@@ -127,13 +127,41 @@ public class MainControllerScript : MonoBehaviour {
 
 
 		if (!playerObj.renderer.enabled) {
-
-
-
-			Debug.Log ("PlayerDead");
-			Instantiate(player1, playerrespawn.position, Quaternion.identity);	
-			playerObj.renderer.enabled = true;
-
+			
+			if (playerObj.GetComponent<PlayerScript> ().lifeCount >= 2) {
+				
+				playerObj.renderer.enabled = true;
+				Debug.Log ("PlayerDead");
+				
+				playerObj.GetComponent<PlayerScript> ().lifeCount--;
+				lifeLine.text = int.Parse (lifeLine.text) - 1 + "";
+				
+				
+				GameObject [] gms = GameObject.FindGameObjectsWithTag ("Enemy");
+				GameObject [] gmsBullet = GameObject.FindGameObjectsWithTag ("EnemyBullet");
+				
+				for (int i = 0; i < gms.Length; i++) {
+					
+					Destroy (gms [i]);
+					
+				}
+				
+				
+				for (int i = 0; i < gmsBullet.Length; i++) {
+					
+					Destroy (gmsBullet [i]);
+					
+				}
+				
+				
+				playerObj.transform.position = new Vector3 (-10.6f, 0f, 0f);
+				
+			} else {
+				
+				Application.LoadLevel ("First_Scene");
+				
+			}
+			
 		}
 
 
